@@ -1,0 +1,6 @@
+sed -i 's/lEGL/lbrcmEGL/g' "${PWD}"/qt-everywhere-src-5.12.10/qtbase/mkspecs/devices/linux-rasp-pi-g++/qmake.conf
+sed -i 's/lGLESv2/lbrcmGLESv2/g' "${PWD}"/qt-everywhere-src-5.12.10/qtbase/mkspecs/devices/linux-rasp-pi-g++/qmake.conf
+sed -i 's/lEGL/lbrcmEGL/g' "${PWD}"/qt-everywhere-src-5.12.10/qtbase/mkspecs/devices/linux-rasp-pi2-g++/qmake.conf
+sed -i 's/lGLESv2/lbrcmGLESv2/g' "${PWD}"/qt-everywhere-src-5.12.10/qtbase/mkspecs/devices/linux-rasp-pi2-g++/qmake.conf
+sed -i 's/lEGL/lbrcmEGL/g' "${PWD}"/qt-everywhere-src-5.12.10/qtbase/mkspecs/devices/linux-rasp-pi3-g++/qmake.conf
+sed -i 's/lGLESv2/lbrcmGLESv2/g' "${PWD}"/qt-everywhere-src-5.12.10/qtbase/mkspecs/devices/linux-rasp-pi3-g++/qmake.conf
