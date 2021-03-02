@@ -49,30 +49,11 @@ if [[ ! -d "${PWD}/qt-everywhere-src-${Qt}" ]]; then
 fi
 
 if  [[ ! -d "${PWD}/sysroot" ]]; then
-    echo "Creating RPI sysroot"
-    if [[ ! -f "${PWD}/2021-01-11-raspios-buster-armhf-lite.img" ]]; then
-        wget https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2021-01-12/2021-01-11-raspios-buster-armhf-lite.zip
-        unzip 2021-01-11-raspios-buster-armhf-lite.zip
-        rm 2021-01-11-raspios-buster-armhf-lite.zip
-    fi
+    echo "Downloading RPI sysroot"
+    wget https://github.com/akhilharihar/Qt-cross-compile-for-RPI/releases/download/v1.0/sysroot.tar.xz
 
-    mkdir "$PWD"/temp_rpi_rootfs && mkdir "$PWD"/sysroot
-    
-    sudo mount "$PWD"/2021-01-11-raspios-buster-armhf-lite.img -o loop,offset=$(( 512 * 532480 )) "$PWD"/temp_rpi_rootfs
-    
-    rsync -az "$PWD"/temp_rpi_rootfs/lib "$PWD"/sysroot
-    rsync -az "$PWD"/temp_rpi_rootfs/usr/include "$PWD"/sysroot/usr
-    rsync -az "$PWD"/temp_rpi_rootfs/usr/lib "$PWD"/sysroot/usr
-    rsync -az "$PWD"/temp_rpi_rootfs/opt/vc "$PWD"/sysroot/opt
-    
-    sudo umount "$PWD"/temp_rpi_rootfs && rmdir "$PWD"/temp_rpi_rootfs
-
-    if [[ ! -f "${PWD}/sysroot-relativelinks.py" ]]; then
-        wget https://raw.githubusercontent.com/riscv/riscv-poky/master/scripts/sysroot-relativelinks.py
-        chmod +x ./sysroot-relativelinks.py
-    fi
-
-    sudo "$PWD"/sysroot-relativelinks.py "$PWD"/sysroot
+    tar xf sysroot.tar.xz
+    rm sysroot.tar.xz
 fi
 
 if [[ -d "$PWD"/build ]]; then
