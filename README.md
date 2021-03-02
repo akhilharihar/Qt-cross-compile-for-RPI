@@ -12,7 +12,7 @@ Install QT and QT creator for linux - `https://www.qt.io/download-open-source` -
 Download configure shell script file and set execute permissions to it.
 
 ```bash
-wget https://github.com/akhilharihar/Cross-Compile-Qt-for-Raspberry-PI/releases/download/v1.0/configure
+https://github.com/akhilharihar/Qt-cross-compile-for-RPI/releases/download/v1.0/configure
 chmod +x ./configure
 ```
 
